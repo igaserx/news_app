@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:news/constant.dart';
+import 'package:news/core/constants/app_colors.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget  {
   final Color color ;
   final String title ;
 
   const CustomAppBar({
-    super.key,  this.color = kWhite, required this.title,
+    super.key,  this.color = AppColors.kBackground, required this.title,
   });
 
   @override
@@ -16,10 +16,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget  {
       title: Container(
         padding: EdgeInsets.symmetric(vertical: 5, horizontal: 16),
         decoration: BoxDecoration(
-          color : kBlack,
+          color : AppColors.kText,
           borderRadius: BorderRadius.only(topLeft: Radius.circular(16) , bottomRight: Radius.circular(16))
         ),
-        child: Text(title, style: TextStyle(color : kWhite))),
+        child: Text(title, style: TextStyle(color : AppColors.kBackground))),
       centerTitle: true,
     );
   }
