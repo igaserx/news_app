@@ -1,29 +1,44 @@
 import 'package:flutter/material.dart';
 import 'package:news/core/constants/app_colors.dart';
 
-class CustomAppBar extends StatelessWidget implements PreferredSizeWidget  {
-  final Color color ;
-  final String title ;
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+  final Color color;
+  final String title;
 
   const CustomAppBar({
-    super.key,  this.color = AppColors.kBackground, required this.title,
+    super.key,
+    this.color = AppColors.kBackground,
+    required this.title,
   });
 
   @override
-   build(BuildContext context) {
+  build(BuildContext context) {
     return AppBar(
-      backgroundColor:color,
+      backgroundColor: color,
       title: Container(
-        padding: EdgeInsets.symmetric(vertical: 5, horizontal: 16),
+        padding: EdgeInsets.symmetric(horizontal: 16),
         decoration: BoxDecoration(
-          color : AppColors.kText,
-          borderRadius: BorderRadius.only(topLeft: Radius.circular(16) , bottomRight: Radius.circular(16))
+          color: AppColors.kText,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(16),
+            bottomRight: Radius.circular(16),
+          ),
         ),
-        child: Text(title, style: TextStyle(color : AppColors.kBackground))),
+        child: Padding(
+          padding: const EdgeInsets.only(top: 5),
+          child: Text(
+            title,
+            style: TextStyle(
+              fontFamily: 'Newsreader',
+              color: AppColors.kBackground,
+            ),
+          ),
+        ),
+      ),
       centerTitle: true,
     );
   }
-  
+
   @override
-  Size get preferredSize =>  Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => Size.fromHeight(kToolbarHeight);
 }

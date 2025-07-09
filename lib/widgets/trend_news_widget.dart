@@ -8,13 +8,13 @@ class TrendNewsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       child: SizedBox(
-        height:Size.isTablet(context) ?  Size.getResponsiveHeight(context,0.3) : Size.getResponsiveHeight(context,0.2),
+        height:ResponsiveSize.isTablet(context) ?  ResponsiveSize.getResponsiveHeight(context,0.3) : ResponsiveSize.getResponsiveHeight(context,0.2),
         child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemCount: 5,
           itemBuilder: (context, index) {
             return Container(
-              width: Size.isTablet(context) ?  Size.getResponsiveWidth(context,0.4) : Size.getResponsiveWidth(context,0.6),
+              width: ResponsiveSize.isTablet(context) ?  ResponsiveSize.getResponsiveWidth(context,0.4) : ResponsiveSize.getResponsiveWidth(context,0.6),
               margin: const EdgeInsets.only(right: 12),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),

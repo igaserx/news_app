@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 /// Utility class for responsive design calculations in Flutter apps.
-class Size {
+class ResponsiveSize {
   /// Calculates a responsive width based on a percentage of the screen width.
   /// [context]: The BuildContext to access MediaQuery.
   /// [percentage]: The percentage of the screen width (0.0 to 1.0).
