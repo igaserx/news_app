@@ -15,17 +15,26 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   build(BuildContext context) {
     return AppBar(
       backgroundColor: color,
+      leading: Padding(
+         padding: const EdgeInsets.symmetric(horizontal: 6.0),
+        child: CircleAvatar(
+              radius: 25, 
+          backgroundImage: NetworkImage(
+            "https://ichef.bbci.co.uk/news/800/cpsprodpb/4144/live/d7e8f9c0-5cae-11f0-ae37-a7df7603ca40.jpg.webp",
+          ),
+        ),
+      ),
       title: Container(
-        padding: EdgeInsets.symmetric(horizontal: 16),
+        padding: EdgeInsets.symmetric(horizontal: 16,vertical: 3),
         decoration: BoxDecoration(
           color: AppColors.kText,
           borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(16),
-            bottomRight: Radius.circular(16),
+            topLeft: Radius.elliptical(8, 8),
+            bottomRight: Radius.elliptical(8, 8),
           ),
         ),
         child: Padding(
-          padding: const EdgeInsets.only(top: 5),
+          padding: const EdgeInsets.only(top: 3),
           child: Text(
             title,
             style: TextStyle(
@@ -36,6 +45,17 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       centerTitle: true,
+      actions: [
+        Padding(
+          padding: const EdgeInsets.all(5.0),
+          child: Icon(Icons.search_rounded),
+        ),
+        
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Icon(Icons.notifications),
+        ),
+      ],
     );
   }
 
