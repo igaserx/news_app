@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:news/models/news_model.dart';
 
 class NewsByCategoryWidget extends StatelessWidget {
+  final NewsModel newsModel;
   const NewsByCategoryWidget({
-    super.key,
+    super.key, required this.newsModel,
   });
 
   @override
@@ -25,7 +27,7 @@ class NewsByCategoryWidget extends StatelessWidget {
             Column(
               children: [
                 Text(
-                  "Orcas are bringing humans gifts of food – but why?",
+                  newsModel.title,
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold
@@ -34,7 +36,7 @@ class NewsByCategoryWidget extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                 ),
                 Text(
-                  "One of the orcas, a juvenile female, “approached a camera I had in the water to film her younger brother and then opened her mouth and let out a dead seabird,” Towers, the executive director of Bay Cetology, a Canadian team of marine biologists based in Alert Bay, British Columbia, told CNN.",
+                 newsModel.subTitle ?? "",
                   style: TextStyle(fontSize: 12),
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
@@ -46,7 +48,7 @@ class NewsByCategoryWidget extends StatelessWidget {
             Image(
                 fit: BoxFit.fill,
                 image: NetworkImage(
-                  "https://ichef.bbci.co.uk/news/800/cpsprodpb/4144/live/d7e8f9c0-5cae-11f0-ae37-a7df7603ca40.jpg.webp",
+                  newsModel.image
                 ),
               ),
             
