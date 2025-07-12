@@ -6,7 +6,7 @@ sealed class NewsState {}
 final class NewsInitial extends NewsState {}
 final class NewsLoading extends NewsState{}
 final class NewLoaded extends NewsState{
-  final NewsModel news ;
+  final List<NewsModel> news ;
 
   NewLoaded({required this.news});
 }
