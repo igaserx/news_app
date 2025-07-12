@@ -20,7 +20,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         child: CircleAvatar(
               radius: 25, 
           backgroundImage: NetworkImage(
-            "https://ichef.bbci.co.uk/news/800/cpsprodpb/4144/live/d7e8f9c0-5cae-11f0-ae37-a7df7603ca40.jpg.webp",
+            "https://imgs.search.brave.com/YOrO8KcPasGpie-Ay0OK0aq9I9WRJAQXGYoV8f8nKuU/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS12ZWN0/b3IvcGVyc29uLXdp/dGgtYmx1ZS1zaGly/dC10aGF0LXNheXMt/bmFtZS1wZXJzb25f/MTAyOTk0OC03MDQw/LmpwZz9zZW10PWFp/c19oeWJyaWQmdz03/NDA",
           ),
         ),
       ),
