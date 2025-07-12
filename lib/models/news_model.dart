@@ -1,10 +1,10 @@
 import 'package:news/core/database/api/end_points.dart';
 
 class NewsModel {
-  final String image;
-  final String title;
+  final String? image;
+  final String? title;
   final String? subTitle;
-  final String url;
+  final String? url;
   const NewsModel({
     required this.image,
     required this.title,

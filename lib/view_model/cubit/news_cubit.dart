@@ -8,11 +8,12 @@ part 'news_state.dart';
 
 class NewsCubit extends Cubit<NewsState> {
   NewsCubit() : super(NewsInitial());
-  fetchNews(String category)async{
+  Future<void> fetchNews(String category)async{
     emit(NewsLoading());
     try {
       final news = await ApiService().getNewsByCategory(category);
-      emit(NewLoaded(news: news));
+      final trendNews = await ApiService().getTrendNews();
+      emit(NewsLoaded(news: news ,trendNews:  trendNews));
     } catch (e) {
       emit(NewsFailure(errMessage: e.toString()));
     }

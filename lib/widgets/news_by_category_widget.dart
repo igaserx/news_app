@@ -27,7 +27,7 @@ class NewsByCategoryWidget extends StatelessWidget {
             Column(
               children: [
                 Text(
-                  newsModel.title,
+                  newsModel.title??"",
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold
@@ -48,7 +48,7 @@ class NewsByCategoryWidget extends StatelessWidget {
             Image(
                 fit: BoxFit.fill,
                 image: NetworkImage(
-                  newsModel.image
+                  newsModel.image ?? ''
                 ),
               ),
             
