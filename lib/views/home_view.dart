@@ -7,12 +7,15 @@ import 'package:news/widgets/custom_app_bar.dart';
 import 'package:news/widgets/news_by_category_widget.dart';
 import 'package:news/widgets/trend_news_widget.dart';
 
-class HomeView extends StatelessWidget {
+class HomeView extends StatefulWidget {
   const HomeView({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final List<String> categories = [
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
+        final List<String> categories = const[
       'All',
       'Sports',
       'Tech',
@@ -22,6 +25,12 @@ class HomeView extends StatelessWidget {
       'Travel',
       'Art',
     ];
+    String? selectedCategory = 'All';
+
+
+  @override
+  Widget build(BuildContext context) {
+    
 
     return BlocProvider(
       create: (context) => NewsCubit()..fetchNews('all'),
@@ -64,20 +73,27 @@ class HomeView extends StatelessWidget {
                           height: 50,
                           child: OverflowBar(
                             children:
+                            
                                 categories.map((child) {
+                                      final bool isSelected = selectedCategory == child;
                                   return Padding(
                                     padding: const EdgeInsets.only(right: 8),
                                     child: ElevatedButton(
                                       style: ButtonStyle(
                                         backgroundColor: WidgetStatePropertyAll(
-                                          Colors.white,
-                                        ),
+                                      isSelected ? Colors.black : Colors.white,),
+                                      foregroundColor: WidgetStatePropertyAll(   isSelected ? Colors.white : Colors.black),
                                       ),
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        
+                                          selectedCategory = child;
+                                          BlocProvider.of<NewsCubit>(context).fetchNews(selectedCategory ?? 'All');
+                                        
+                                      },
                                       child: Text(
                                         child,
                                         style: TextStyle(
-                                          color: Colors.black,
+                                          // color: Colors.black,
                                           fontWeight: FontWeight.bold,
                                         ),
                                       ),
@@ -96,7 +112,7 @@ class HomeView extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              'All',
+                              "$selectedCategory",
                               style: TextStyle(
                                 fontSize: 24,
                                 fontWeight: FontWeight.w800,
